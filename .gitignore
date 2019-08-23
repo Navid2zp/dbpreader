@@ -20,5 +20,8 @@
 /vendor/
 /files/*
 /Godeps/
+## idea files
 /.idea/
+.idea/
+.idea/*
 # End of https://www.gitignore.io/api/go
