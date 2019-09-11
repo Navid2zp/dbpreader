@@ -9,7 +9,6 @@ import (
 	"strings"
 )
 
-
 // Queries the json version of dbpedia
 // Return a map of results returned by dbpedia
 // Results might be contain resources that you didn't ask for
@@ -45,7 +44,7 @@ func Query(query string) (*DBPediaResult, error) {
 // This method will find and return the exact resource
 func (r DBPediaResult) FindResource(name string) DBPediaResource {
 	baseName := "http://dbpedia.org/resource/"
-	return r[baseName + name]
+	return r[baseName+name]
 }
 
 // Finds the wikidata item url
@@ -60,6 +59,9 @@ func (r DBPediaResource) GetWikiDataItem() string {
 
 		// Remove "https://, http:// and www." for safer comparision
 		cleaned := strings.Replace(strings.Replace(strings.Replace(stringValue, "https://", "", 1), "http://", "", 1), "www.", "", 1)
+		if len(cleaned) < 20 {
+			return ""
+		}
 		if string(cleaned[0:20]) == "wikidata.org/entity/" {
 			return stringValue
 		}
