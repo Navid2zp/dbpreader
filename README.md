@@ -10,7 +10,7 @@ go get -u github.com/Navid2zp/dbpreader
 ### Example
 
 Page: `http://dbpedia.org/page/Go_(programming_language)`
-```
+```go
 import (
 	"fmt"
 	"dbpreader"
@@ -43,7 +43,7 @@ I might add more along the way.
 The json version of dbpedia returns a list of results
 This method will find and return the exact resource
 
-```
+```go
 resource := results.FindResource("Go_(programming_language)")
 fmt.Println(resource)
 ```
@@ -52,7 +52,7 @@ fmt.Println(resource)
 
 Finds the wikidata item url
 
-```
+```go
 resource.GetWikiDataItem()
 ```
 
